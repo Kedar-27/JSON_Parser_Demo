@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,6 +11,11 @@
 		F969546D2458173D000C6049 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F969546C2458173D000C6049 /* AppDelegate.swift */; };
 		F96954762458173F000C6049 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F96954752458173F000C6049 /* Assets.xcassets */; };
 		F96954792458173F000C6049 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F96954772458173F000C6049 /* LaunchScreen.storyboard */; };
+		F9695484245818DF000C6049 /* CardsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9695483245818DF000C6049 /* CardsVC.swift */; };
+		F9695488245819C8000C6049 /* KSNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9695487245819C8000C6049 /* KSNetworkManager.swift */; };
+		F969548B24581B71000C6049 /* UserDetailJSONResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F969548A24581B71000C6049 /* UserDetailJSONResponse.swift */; };
+		F9924E0624581E7E0014ADBB /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9924E0524581E7E0014ADBB /* URLs.swift */; };
+		F9924E08245820040014ADBB /* UserDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9924E07245820040014ADBB /* UserDetailsTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +27,11 @@
 		F96954752458173F000C6049 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F96954782458173F000C6049 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F969547A2458173F000C6049 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F9695483245818DF000C6049 /* CardsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsVC.swift; sourceTree = "<group>"; };
+		F9695487245819C8000C6049 /* KSNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSNetworkManager.swift; sourceTree = "<group>"; };
+		F969548A24581B71000C6049 /* UserDetailJSONResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailJSONResponse.swift; sourceTree = "<group>"; };
+		F9924E0524581E7E0014ADBB /* URLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
+		F9924E07245820040014ADBB /* UserDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,7 +60,6 @@
 				789B1D0F35D271A21A4D80EA /* Pods-JSON_Parser.debug.xcconfig */,
 				EEE10859EF47A9E9F0DAC498 /* Pods-JSON_Parser.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -75,11 +84,13 @@
 		F969546B2458173D000C6049 /* JSON_Parser */ = {
 			isa = PBXGroup;
 			children = (
+				F9695480245817B3000C6049 /* Cards  */,
+				F9924E0324581E640014ADBB /* Helper */,
+				F969548524581997000C6049 /* Manager */,
 				F969546C2458173D000C6049 /* AppDelegate.swift */,
 				F96954752458173F000C6049 /* Assets.xcassets */,
 				F96954772458173F000C6049 /* LaunchScreen.storyboard */,
 				F969547A2458173F000C6049 /* Info.plist */,
-				F9695480245817B3000C6049 /* Cards  */,
 			);
 			path = JSON_Parser;
 			sourceTree = "<group>";
@@ -87,6 +98,7 @@
 		F9695480245817B3000C6049 /* Cards  */ = {
 			isa = PBXGroup;
 			children = (
+				F969548924581B5A000C6049 /* Model */,
 				F9695482245817CD000C6049 /* Cell */,
 				F9695481245817C0000C6049 /* Controller */,
 			);
@@ -96,6 +108,7 @@
 		F9695481245817C0000C6049 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F9695483245818DF000C6049 /* CardsVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -103,8 +116,49 @@
 		F9695482245817CD000C6049 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				F9924E07245820040014ADBB /* UserDetailsTableViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		F969548524581997000C6049 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				F9695486245819A0000C6049 /* Network */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		F9695486245819A0000C6049 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				F9695487245819C8000C6049 /* KSNetworkManager.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		F969548924581B5A000C6049 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F969548A24581B71000C6049 /* UserDetailJSONResponse.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F9924E0324581E640014ADBB /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				F9924E0424581E6B0014ADBB /* URLs */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		F9924E0424581E6B0014ADBB /* URLs */ = {
+			isa = PBXGroup;
+			children = (
+				F9924E0524581E7E0014ADBB /* URLs.swift */,
+			);
+			path = URLs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,6 +275,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9924E0624581E7E0014ADBB /* URLs.swift in Sources */,
+				F9924E08245820040014ADBB /* UserDetailsTableViewCell.swift in Sources */,
+				F969548B24581B71000C6049 /* UserDetailJSONResponse.swift in Sources */,
+				F9695488245819C8000C6049 /* KSNetworkManager.swift in Sources */,
+				F9695484245818DF000C6049 /* CardsVC.swift in Sources */,
 				F969546D2458173D000C6049 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

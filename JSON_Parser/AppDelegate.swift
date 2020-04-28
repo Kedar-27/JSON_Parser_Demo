@@ -16,12 +16,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: AppDelegate Lifecycle
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        self.setupInitialVC()
         return true
     }
 
     // MARK: - Setup Initial VC
     func setupInitialVC(){
-        
+        let cardsVC = CardsVC()
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        self.window?.rootViewController = cardsVC
+        self.window?.makeKeyAndVisible()
     }
     
 
