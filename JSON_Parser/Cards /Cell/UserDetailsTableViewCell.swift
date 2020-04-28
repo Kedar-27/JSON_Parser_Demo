@@ -18,14 +18,17 @@ class UserDetailsTableViewCell: UITableViewCell {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
+        imageView.clipsToBounds = true
+        
         return imageView
     }()
     
     lazy var nameLabel: UILabel = {
         let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
         label.text = ""
         label.textColor = .black
-        label.textAlignment = .center
+        label.textAlignment = .left
         label.font = .boldSystemFont(ofSize: 16)
         label.numberOfLines = 1
         return label
@@ -33,9 +36,10 @@ class UserDetailsTableViewCell: UITableViewCell {
 
     lazy var ageLabel: UILabel = {
         let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
         label.text = ""
         label.textColor = .black
-        label.textAlignment = .center
+        label.textAlignment = .left
         label.font = .boldSystemFont(ofSize: 12)
         label.numberOfLines = 1
         return label
@@ -44,6 +48,7 @@ class UserDetailsTableViewCell: UITableViewCell {
     lazy var locationLabel: UILabel = {
         let label = UILabel()
         label.text = ""
+        label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
         label.textAlignment = .center
         label.font = .boldSystemFont(ofSize: 12)
@@ -56,12 +61,19 @@ class UserDetailsTableViewCell: UITableViewCell {
     
     
     // MARK: - UIView
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.setupView()
         self.setupConstraints()
     }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        self.setupView()
+        self.setupConstraints()
+    }
+    
+    
     
     override func prepareForReuse() {
         super.prepareForReuse()
@@ -70,13 +82,13 @@ class UserDetailsTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.userImageView.layer.cornerRadius = self.userImageView.frame.width / 2
+        self.userImageView.layer.cornerRadius = self.userImageView.frame.height / 2
         self.userImageView.layer.masksToBounds = true
     }
     
     private func setupView(){
         self.selectionStyle = .none
-        
+
         self.addSubview(self.userImageView)
         self.addSubview(self.nameLabel)
         self.addSubview(self.locationLabel)
@@ -86,18 +98,18 @@ class UserDetailsTableViewCell: UITableViewCell {
     private func setupConstraints(){
             [
                 self.userImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-                self.userImageView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.25),
-                self.userImageView.heightAnchor.constraint(equalTo: self.widthAnchor),
+                self.userImageView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.8),
+                self.userImageView.widthAnchor.constraint(equalTo: self.self.userImageView.heightAnchor),
                 self.userImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor,constant: 20),
                 
                 self.nameLabel.topAnchor.constraint(equalTo: self.userImageView.topAnchor),
                 self.nameLabel.leadingAnchor.constraint(equalTo: self.userImageView.trailingAnchor, constant: 10),
-                
+
                 self.ageLabel.topAnchor.constraint(equalTo: self.nameLabel.bottomAnchor, constant: 5),
                 self.ageLabel.leadingAnchor.constraint(equalTo: self.nameLabel.leadingAnchor),
-                
+
                 self.locationLabel.centerYAnchor.constraint(equalTo: self.ageLabel.centerYAnchor),
-                self.locationLabel.leadingAnchor.constraint(equalTo: self.ageLabel.trailingAnchor,constant: 6)
+                self.locationLabel.leadingAnchor.constraint(equalTo: self.ageLabel.trailingAnchor,constant: 8)
         
         
         ].forEach({$0.isActive = true})
@@ -108,7 +120,7 @@ class UserDetailsTableViewCell: UITableViewCell {
         self.nameLabel.text = name
         self.ageLabel.text = age
         self.locationLabel.text = location
-        self.userImageView.kf.setImage(with: URL(string: imageURL))
+        self.userImageView.kf.setImage(with: URL(string: imageURL),placeholder: UIImage(named: "profile"))
     }
     
 

@@ -69,7 +69,7 @@ class CardsVC: UIViewController {
     private func setupConstraints(){
         [
             self.cardsTableView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            self.cardsTableView.centerYAnchor.constraint(equalTo: self.cardsTableView.centerYAnchor),
+            self.cardsTableView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
             self.cardsTableView.widthAnchor.constraint(equalTo: self.view.widthAnchor),
             self.cardsTableView.heightAnchor.constraint(equalTo: self.view.heightAnchor)
             ].forEach({$0.isActive = true})
@@ -142,7 +142,7 @@ extension CardsVC: UITableViewDelegate, UITableViewDataSource{
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UIScreen.main.bounds.width * 0.12
+        return UIScreen.main.bounds.width * 0.18
     }
     
     
