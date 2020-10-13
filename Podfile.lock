@@ -1,8 +1,8 @@
 PODS:
   - Alamofire (4.9.1)
-  - Kingfisher (5.13.4):
-    - Kingfisher/Core (= 5.13.4)
-  - Kingfisher/Core (5.13.4)
+  - Kingfisher (5.15.6):
+    - Kingfisher/Core (= 5.15.6)
+  - Kingfisher/Core (5.15.6)
 
 DEPENDENCIES:
   - Alamofire (~> 4.9)
@@ -15,8 +15,8 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
-  Kingfisher: d2279a7abece3c7f25a80cd2b7f363ca5cf3f44c
+  Kingfisher: b3554e7bf6106115b44e8795300bad580ef2fdc7
 
 PODFILE CHECKSUM: 8b15e315aea6d9b7be3311b698c9ce068fb77382
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.10.0.rc.1
